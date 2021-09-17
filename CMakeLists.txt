@@ -2,13 +2,6 @@ cmake_minimum_required(VERSION 3.8.0 FATAL_ERROR)
 
 project(ffmpeg_rtsp VERSION 0.1.0 LANGUAGES CXX C)
 
-# option(BUILD_SHARED_LIBS "Build shared libraries" ON)
-
-# include(GNUInstallDirs)
-# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
-# set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
-# set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
-
 message("FFMPEG BIN DIR = ${FFMPEG_BINARY_DIR}")
 
 set(sources 

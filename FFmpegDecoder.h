@@ -5,9 +5,10 @@
 #include <string>
 #include <pthread.h>
 #include <functional>
-#include <unistd.h>
+#include "unistd.h"
 
-extern "C" {
+extern "C"
+{
 #include <libavutil/mathematics.h>
 #include <libavutil/imgutils.h>
 #include <libswscale/swscale.h>
@@ -15,54 +16,48 @@ extern "C" {
 #include <libavdevice/avdevice.h>
 }
 
-
-
 namespace MESAI
 {
 	class FFmpegDecoder
 	{
-		public:
-            FFmpegDecoder(std::string);
-			
-			~FFmpegDecoder();
-        
-			void intialize();
+	public:
+		FFmpegDecoder(std::string);
 
-			void playMedia();
+		~FFmpegDecoder();
 
-			void finalize();
-        
-            void setOnframeCallbackFunction(std::function<void(uint8_t *)> func);
-        
-            int width;
-        
-            int height;
-        
-            int GOP;
-        
-            int frameRate;
-        
-            int bitrate;
-        
-            std::function<void(uint8_t *)> onFrame;
+		void intialize();
 
-		private:
-        
-            std::string path;
-        
-			AVCodecContext  *pCodecCtx;
+		void playMedia();
 
-			AVFormatContext *pFormatCtx;
-        
-            AVFrame *pFrameRGB;
-        
-            struct SwsContext * img_convert_ctx;
+		void finalize();
 
-			int videoStream;
-        
+		void setOnframeCallbackFunction(std::function<void(uint8_t *)> func);
 
+		int width;
+
+		int height;
+
+		int GOP;
+
+		int frameRate;
+
+		int bitrate;
+
+		std::function<void(uint8_t *)> onFrame;
+
+	private:
+		std::string path;
+
+		AVCodecContext *pCodecCtx;
+
+		AVFormatContext *pFormatCtx;
+
+		AVFrame *pFrameRGB;
+
+		struct SwsContext *img_convert_ctx;
+
+		int videoStream;
 	};
-
 
 }
 
