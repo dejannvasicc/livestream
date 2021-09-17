@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8.0 FATAL_ERROR)
 
-project(ffmpeg_rtsp VERSION 0.1.0 LANGUAGES CXX C)
+project(livestream VERSION 0.1.0 LANGUAGES CXX C)
 
 message("FFMPEG BIN DIR = ${FFMPEG_BINARY_DIR}")
 
@@ -60,9 +60,9 @@ endif()
 
 find_library(FFMPEG_LIB FFMPEG)
 
-add_executable(ffmpeg_rtsp main.cpp ${sources})
+add_executable(livestream main.cpp ${sources})
 
-target_link_libraries(ffmpeg_rtsp 
+target_link_libraries(livestream 
 	PRIVATE
 		wsock32 ws2_32
 		${FFMPEG_LIBRARIES}
